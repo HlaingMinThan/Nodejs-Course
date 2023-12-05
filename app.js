@@ -1,14 +1,12 @@
 const express = require('express');
+let morgan = require('morgan')
 
 const app = express();
 
 app.set('views', './views')
 app.set('view engine', 'ejs')
 
-app.use((req,res,next) => {
-    console.log('first middleware is running');
-    next();
-})
+app.use(morgan('dev'))
 
 app.get('/',(req,res) => {
 
@@ -28,11 +26,6 @@ app.get('/about',(req,res) => {
         title : "About"
     });
 });
-
-app.use((req,res,next) => {
-    console.log('second middleware is running');
-    next();
-})
 
 app.get('/contact',(req,res) => {
     res.render('contact', {
