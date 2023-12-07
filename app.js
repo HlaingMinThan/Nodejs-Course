@@ -3,6 +3,9 @@ let morgan = require('morgan')
 
 const app = express();
 
+//db url
+let mongoUrl = "mongodb+srv://hlaingminthan:test1234@cluster0.qhxu0as.mongodb.net/?retryWrites=true&w=majority";
+
 app.set('views', './views')
 app.set('view engine', 'ejs')
 
