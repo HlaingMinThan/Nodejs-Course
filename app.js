@@ -39,14 +39,6 @@ app.get('/add-blog',async (req,res) => {
     await blog.save();
     res.send('blog saved');
 })
-app.get('/blogs/:id',async (req,res) => {
-    let id = req.params.id;
-    let blog = await Blog.findById(id);
-    res.render('blogs/show',{
-        blog,
-        title : "Blog Detail"
-    })
-})
 
 app.get('/',async (req,res) => {
     let blogs = await Blog.find().sort({createdAt : -1});
@@ -87,6 +79,20 @@ app.get('/blogs/create',(req,res) => {
         title : 'Blog Create'
     });
 });
+
+app.get('/blogs/:id',async (req,res,next) => {
+    try {
+        let id = req.params.id;
+        let blog = await Blog.findById(id);
+        res.render('blogs/show',{
+            blog,
+            title : "Blog Detail"
+        })
+    }catch(e) {
+        console.log(e)
+        next()
+    }
+})
 
 app.use((req,res)=> {
     res.status(404).render('404', {
