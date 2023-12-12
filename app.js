@@ -7,6 +7,8 @@ const Blog = require('./models/Blog');
 
 const app = express();
 
+app.use(express.urlencoded({extended:true}));
+
 //db url
 let mongoUrl = "mongodb+srv://hlaingminthan:test1234@cluster0.qhxu0as.mongodb.net/?retryWrites=true&w=majority";
 mongoose.connect(mongoUrl).then(() => {
@@ -48,6 +50,20 @@ app.get('/',async (req,res) => {
         blogs,
         title : "Home"
     })
+});
+
+app.post('/blogs',async (req,res) => {
+    let {title,intro,body} = req.body;
+
+    let blog = new Blog({
+        title,
+        intro,
+        body
+    });
+
+    await blog.save();
+
+    res.redirect('/');
 });
 
 app.get('/about',(req,res) => {
