@@ -8,7 +8,7 @@ a {
 }
 
 nav {
-  background-color: lightgreen;
+  background-color: rgb(43, 110, 236);
   padding: 20px;
   display: flex;
   justify-content: space-between;
@@ -25,7 +25,7 @@ nav a {
 }
 
 nav a:hover {
-  color: green;
+  color: rgb(0, 51, 146);
 }
 
 .container {
@@ -34,18 +34,37 @@ nav a:hover {
 
 .blog-card {
   margin: 20px 0;
+  border-left: 5px solid rgb(43, 110, 236);
+  padding: 10px;
 }
 
+.blog-card h1 {
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.blog-header {
+  display: flex;
+}
+
+.blog-card p {
+  margin-bottom: 10px;
+}
 /* blog create page css */
 .blog-form {
   max-width: 800px;
   margin: auto;
-  border: 1px solid lightgreen;
+  border: 1px solid lightrgb(43, 110, 236);
   padding: 40px;
 }
 
 .blog-form h1 {
-  color: green;
+  color: rgb(43, 110, 236);
+}
+
+.blog-card a:active,
+.blog-card a:visited {
+  color: rgb(43, 110, 236);
 }
 
 .form-group {
@@ -60,22 +79,31 @@ nav a:hover {
   width: 100%;
   padding: 10px;
   margin-top: 10px;
-  border: 1px solid green;
+  border: 1px solid rgb(43, 110, 236);
 }
 
 .blog-create-btn {
-  background-color: green;
+  background-color: rgb(43, 110, 236);
   padding: 10px 20px;
   font-size: 16px;
   border-radius: 20px;
-  border: 1px solid green;
+  border: 1px solid rgb(43, 110, 236);
   color: white;
 }
+
 .blog-delete-btn {
   background-color: red;
-  padding: 5px 10px;
-  font-size: 16px;
-  border-radius: 20px;
   border: 1px solid red;
   color: white;
+  border-radius: 5px;
+  padding: 3px;
+  margin: 1px;
+}
+
+.blog-detail * {
+  text-align: center;
+}
+
+.blog-detail h1 {
+  margin-bottom: 20px;
 }
